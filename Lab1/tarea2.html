@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+  
+    <head>
+        <meta charset="utf-8">
+        <title>"Tarea 2"</title>
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        </head>
+        
+        
+        
+    <body> 
+   
+    
+   
+        <h1>CALCULADORA</h1>
+        
+        Primer numero:<input id="numero1" type="text" name="numero1"><br><br>
+        Segundo numero:<input id="numero2" type="text" name="numero2"><br><br>
+        Selecciona Operacion:
+        <Select id ="signo" name ="signo">
+            <option>+</option>
+            <option>-</option>
+            <option>*</option>
+            <option>/</option>
+        </Select><br><br>
+        *Infinito se expresa como : infinito.<br><br>
+        Tu Solucion:<input id="solucion" type="text" name="solucion"><br><br>
+       
+        <input id="boton" type="button" value="Es correcto?"><button id="re" type="reset" onclick="reset()" value="Limpiar">Limpiar</button><br><br><br>
+        
+        <div id="res"> </div>
+        
+        
+        <script>
+         $("#boton").click(function(){
+        
+            
+            
+            var num11=$("#numero1").val();
+            var num1=parseInt(num11);
+            
+            var num22=$("#numero2").val();
+            var num2=parseInt(num22);
+            
+            var solu=$("#solucion").val();
+            var sol=parseInt(solu);
+            
+            var signo=$("#signo").val();
+            
+            
+            
+            if(signo=="+"){
+                
+                if((num1 + num2)==sol){
+                   
+                    $("#res").html("<span style='color:#01DF01'>Es correcto</span>");
+                }else{
+                    $("#res").html("<span style='color:#FF0000'>Es incorrecto</span>");
+                }
+            }
+             if(signo=="-"){
+                if((num1 - num2)==sol){
+                    $("#res").html("<span style='color:#01DF01'>Es correcto</span>");
+                }else{
+                     $("#res").html("<span style='color:#FF0000'>Es incorrecto</span>");
+                }
+            }
+             if(signo=="*"){
+                if(num1*num2==sol){
+                      $("#res").html("<span style='color:#01DF01'>Es correcto</span>");
+                }else{
+                      $("#res").html("<span style='color:#FF0000'>Es incorrecto</span>");
+                }
+            }
+             if(signo=="/"){
+                 if(num2==0){
+                     var sol=$("#solucion").val();
+                     if(sol=="infinito"){
+                          $("#res").html("<span style='color:#01DF01'>Es correcto</span>");  
+                         
+                     }else{
+                       $("#res").html("<span style='color:#FF0000'>Es incorrecto</span>");
+                     }
+                 }else{
+                if(num1 / num2==sol){
+                      $("#res").html("<span style='color:#01DF01'>Es correcto</span>");
+                }else{
+                     $("#res").html("<span style='color:#FF0000'>Es incorrecto</span>");
+                }
+            }}
+             
+        
+    
+  });
+  
+  $("#re").click(function(){
+      $("#numero1").val("");
+      $("#numero2").val("");
+      $("#solucion").val("");
+      $("#res").html("");
+  });
+
+</script>
+    </body>
+</html>
